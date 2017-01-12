@@ -34,15 +34,17 @@ The framework comes with an install sript to create files for the following.
 
 Basic Usage
 
-- php install.php -c application:create -p myApp
-- php install.php -c controller:create -p myController -a myApp
+```
+php install.php -c application:create -p myApp
+php install.php -c controller:create -p myController -a myApp
+```
 
 The command consist of; calling the install script, passing through the command (seperated by :) and the name param (a) if necessary.
 
 
 # Config files
 
-The system cascades all the config and generates one config file with one $cfg array. This gives us a major performance boost. Only one file has to be included for each request.
+The system cascades all the config and generates one config file with one `$cfg` array. This gives us a major performance boost. Only one file has to be included for each request.
 
 
 # Cronjobs
