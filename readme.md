@@ -54,6 +54,7 @@ This can be done by adding the following rule to the cronjobs array;
 
 ```php
 $cron['*']['*']['*']['*']['*']['*'][] = 'image::handle?type=square&width=80,300,272,544&suffix=admin,admin-l,1x,2x&prefix=';
+```
 
 As you can see, vars can be passed to the method which is called at the given time.
 
@@ -68,4 +69,5 @@ $cron['*']['*']['*']['*']['*']['*'] = '*';
 	   |    |    +------------------------- day of month 		(1 - 31)
 	   |    +------------------------------ hour 				(0 - 23)
 	   +----------------------------------- min 				(0 - 59)
+```
  
