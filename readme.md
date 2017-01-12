@@ -2,11 +2,11 @@
 
 In house development. PHP MVC framework. Inheritance based approach. Used for CMS, Websites and Applications.
 
--
+---
 
 MVC width a inheritance based approach. Every module inherit from the base in the framework. Every child application inherits from it's mother application. This works for all the different module types in the framework. Like; Applications / Sub Applications / Bootstrappers / Controllers / Modules / Library classes / Templates / Cronjobs / Config
 
--
+---
 
 
 # Applications
@@ -52,12 +52,14 @@ You only have to edit the cronjobs file on your Linux webserver once. Make sure 
 Edit the cronjobs.conf file in the framework or applications to set the cronjobs for each application.
 This can be done by adding the following rule to the cronjobs array;
 
+```php
 $cron['*']['*']['*']['*']['*']['*'][] = 'image::handle?type=square&width=80,300,272,544&suffix=admin,admin-l,1x,2x&prefix=';
 
 As you can see, vars can be passed to the method which is called at the given time.
 
 The array is structured this way.
 
+```php
 $cron['*']['*']['*']['*']['*']['*'] = '*';
        |	|    |    |    |    |	   +--- Filename to call
        |    |    |    |    |    +---------- Server 				(DEV / STAGING / LIVE)
