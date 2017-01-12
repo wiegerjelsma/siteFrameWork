@@ -1,0 +1,1 @@
+[20-Jun-2016 14:22:15 Europe/Amsterdam] PHP Strict Standards:  Declaration of c_site_back_Home::view() should be compatible with c_site_back_Controller::view($a_Params = Array) in /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Applications/site/Applications/back/Controllers/Home/clsHome.php on line 0

@@ -1,0 +1,41 @@
+.form .content .form-row .redactor_box textarea
+	{
+		width: 100%;
+	}
+/*.form .content .form-row .redactor_editor p,
+.form .content .form-row .redactor_editor h1,
+.form .content .form-row .redactor_editor h2,
+.form .content .form-row .redactor_editor h3
+	{
+		color: 						#405a87;
+		display: 					block;
+		float: 						left;
+		width: 						100%;
+	}	
+.form .content .form-row .redactor_editor p
+	{
+		font-size: 					12px !important;
+		font-style: 				normal;
+		font-weight: 				normal;
+	}
+
+.form .content .form-row .redactor_editor h1
+	{
+		font-size: 					24px !important;
+		font-style: 				normal;
+		font-weight: 				normal;
+	}
+
+.form .content .form-row .redactor_editor h2
+	{
+		font-size: 					20px !important;
+		font-style: 				normal;
+		font-weight: 				normal;
+	}
+
+.form .content .form-row .redactor_editor h3
+	{
+		font-size: 					16px !important;
+		font-style: 				normal;
+		font-weight: 				normal;
+	} */

@@ -1,0 +1,11 @@
+Checks: 
+- rechten en eigenaar csFrameWork
+- Rechten _bin, _input, _output
+- rechten image dirs.
+- MultiViews
+- Symlinks
+- Is de domeinnaam wel in de domainnames.conf gezet
+- MySQL moet niet in Strict mode lopen!
+
+
+Even afvangen dat we ook geen subdomein kunnen hebben in de front. Dat moet niet kunnen.

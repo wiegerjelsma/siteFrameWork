@@ -1,0 +1,259 @@
+-- MySQL dump 10.11
+--
+-- Host: localhost    Database: ww_data
+-- ------------------------------------------------------
+-- Server version	5.0.45
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `osteovitaal_data`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `osteovitaal_data` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+
+USE `osteovitaal_data`;
+
+--
+-- Table structure for table `m_cms_menu`
+--
+
+DROP TABLE IF EXISTS `m_cms_menu`;
+CREATE TABLE `m_cms_menu` (
+  `id` int(12) NOT NULL auto_increment,
+  `menu_type` enum('draft','menu','page','predefined') collate utf8_unicode_ci NOT NULL default 'page',
+  `menu_name` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `parent_id` int(12) NOT NULL,
+  `order_id` int(12) NOT NULL,
+  `page_id` int(12) NOT NULL,
+  `edit` timestamp NOT NULL default '0000-00-00 00:00:00',
+  `edit_user_id` int(12) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `m_cms_menu`
+--
+
+LOCK TABLES `m_cms_menu` WRITE;
+/*!40000 ALTER TABLE `m_cms_menu` DISABLE KEYS */;
+INSERT INTO `m_cms_menu` VALUES (6,'draft','Ongeplaatst',0,4,0,'0000-00-00 00:00:00',0),(10,'predefined','Voorgedefinieerd',0,3,0,'0000-00-00 00:00:00',0),(31,'menu','Hoofdmenu',0,1,0,'2013-02-16 12:38:36',5),(63,'page','',31,6,1,'2013-05-11 08:11:37',5),(71,'page','',31,38,9,'2013-04-11 11:15:49',1),(77,'page','',6,0,0,'0000-00-00 00:00:00',0),(108,'menu','Footermenu',0,0,0,'0000-00-00 00:00:00',0),(111,'page','',31,13,11,'2013-05-11 08:08:59',5),(112,'page','',31,33,12,'2013-05-15 10:35:50',1),(113,'page','',31,10,13,'2013-05-11 08:11:34',5),(114,'page','',31,36,14,'2013-05-11 21:54:57',1),(121,'page','',113,5,21,'2013-05-11 19:36:32',1),(122,'page','',113,7,22,'2013-05-11 19:30:56',1),(123,'page','',113,6,23,'2013-05-11 19:35:20',1),(124,'page','',113,8,24,'2013-05-11 19:45:13',1),(125,'page','',113,9,25,'2013-05-11 19:48:00',1),(126,'page','',113,1,26,'2013-05-12 14:47:14',1),(127,'page','',113,10,27,'2013-05-11 19:54:12',1),(128,'page','',31,34,28,'2013-05-11 21:55:00',1),(129,'page','',135,4,29,'2013-05-15 11:25:27',1),(130,'page','',135,2,30,'2013-05-15 11:25:31',1),(131,'page','',135,3,31,'2013-05-15 11:25:33',1),(132,'page','',135,1,32,'2013-05-15 11:25:29',1),(133,'page','',31,40,33,'2013-05-11 21:45:50',5),(134,'page','',31,35,34,'2013-05-11 22:01:49',1),(135,'page','',31,37,35,'2013-05-15 11:25:04',1);
+/*!40000 ALTER TABLE `m_cms_menu` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `m_cms_pages`
+--
+
+DROP TABLE IF EXISTS `m_cms_pages`;
+CREATE TABLE `m_cms_pages` (
+  `id` int(12) NOT NULL auto_increment,
+  `name` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `comment` varchar(256) collate utf8_unicode_ci NOT NULL,
+  `type` enum('content','template','virtual','redirect','alias') collate utf8_unicode_ci NOT NULL,
+  `is_predefined` enum('0','1') collate utf8_unicode_ci NOT NULL default '0',
+  `content_title` varchar(256) collate utf8_unicode_ci NOT NULL,
+  `content_body` text collate utf8_unicode_ci NOT NULL,
+  `custom_template` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `virtual_int_url_controller` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `virtual_int_url_function` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `virtual_int_url_id` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `redirect_ext_url` varchar(256) collate utf8_unicode_ci NOT NULL,
+  `alias_page_id` int(12) NOT NULL,
+  `virtual_page_id` int(12) NOT NULL,
+  `visible_in_menu` enum('0','1') collate utf8_unicode_ci NOT NULL default '1',
+  `short_url` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `meta_title` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `meta_description` tinytext collate utf8_unicode_ci NOT NULL,
+  `meta_keywords` varchar(256) collate utf8_unicode_ci NOT NULL,
+  `added` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `added_user_id` int(12) NOT NULL,
+  `edit` timestamp NOT NULL default '0000-00-00 00:00:00',
+  `edit_user_id` int(12) NOT NULL,
+  `status` enum('0','1') collate utf8_unicode_ci NOT NULL default '0',
+  `locked_content` enum('0','1') collate utf8_unicode_ci NOT NULL default '0',
+  `locked_menu` enum('0','1') collate utf8_unicode_ci NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `m_cms_pages`
+--
+
+LOCK TABLES `m_cms_pages` WRITE;
+/*!40000 ALTER TABLE `m_cms_pages` DISABLE KEYS */;
+INSERT INTO `m_cms_pages` VALUES (1,'Home','','content','0','welkom bij Wonderwens!','<p>Alles al geprobeerd om zwanger te worden?  Je bent niet de enige; bij 1 op de 5 stellen blijft een zwangerschap, om verklaarbare of onverklaarbare redenen uit en wordt na een jaar proberen hulp gezocht in het medische circuit. Natuurlijk wil je er alles aan doen om snel achter de oorzaak te komen en een oplossing te vinden voor het uitblijven van een zwangerschap. Wonderwens biedt je dit! </p>\r\n<p>De oorzaak verminderde vruchtbaarheid kan tal van redenen hebben bij zowel man als vrouw zoals leeftijd, medische of psychische problemen, een verstoorde hormoonhuishouding, enzovoort. Dit valt voornamelijk terug te leiden naar onze levensstijl die de afgelopen jaren veranderd is. Om zwanger te kunnen worden moeten lichaam én geest klaar zijn voor een zwangerschap. Is dit niet het geval dan zal je lichaam simpelweg weigeren en een zwangerschap blijft uit. Gelukkig kun je zelf heel veel doen om het tij te keren  en zwanger te worden door het veranderen van je levensstijl. Je voedingspatroon onder de loep nemen, het opruimen van beperkende gedachtes, het uit de weg ruimen van problemen, je energie sparen en het inzetten van je mentale kracht zullen je kansen op een zwangerschap al snel aanzienlijk vergroten, zowel via de natuurlijke weg als via medische behandelingen. En, ook wanneer je je pil pas net hebt afgezworen en graag zo snel mogelijk zwanger wilt worden vind je bij Wonderwens alle tips en trucs voor snel(ler) resultaat. <p>Wonderwens, praktijk voor coaching en advies bij het vervullen van je kinderwens, helpt je om zelf het heft in handen te nemen door je inzicht te geven in jouw persoonlijke aandachtsgebieden rond het optimaliseren van je vruchtbaarheid en geeft advies en coaching bij het doen van de aanpassingen die nodig zijn in jouw leven.  </p>\r\n<p>Het succes is inmiddels ruim bewezen; meer dan 75% van alle deelnemers is na drie maanden zwanger. </p></p>','','','','','',0,0,'1','welkom_bij_wonderwens','Welkom bij Wonderwens!','Description','ltc lisse, tennisvereniging','2013-04-10 14:10:41',1,'2013-05-11 19:21:19',1,'1','0','0'),(9,'Contact','','content','0','contact met Wonderwens','<p><p>Wil je direct aan de slag met de wonderwens-methode, het boek lezen, heb je vragen over zwanger worden en vruchtbaarheid of heb je behoefte aan coaching? Neem dan snel contact met ons op, we helpen je graag!&nbsp;</p><p><b>Wonderwens<span><br></span></b>Stuyvesantstraat 14<span><br></span><span>Haarlem</span></p><p>KVK: 56768419 te Haarlem&nbsp;<span><br></span>Btw-nummer: &nbsp; dont’t know!</p></p>','','','','','',0,0,'1','contact','neem contact op met Wonderwens','Heb je vragen over zwanger worden, vruchtbaarheid, zwanger worden lukt niet of behoefte aan coaching? Neem contact op met Wonderwens.','advies zwanger worden, coaching zwanger worden, contact Wonderwens','2013-04-11 11:15:27',1,'2013-05-11 20:26:43',1,'1','0','0'),(11,'Werkwijze','','content','0','De werkwijze van Wonderwens','<p>Ontspanning, voeding, beweging, je energie sparen, je mindset, seks… het zijn een aantal onderdelen van je levensstijl waar Wonderwens aandacht aan zal besteden en waarover je in het boek \'zwanger worden doe je zo\' alles leest.&nbsp;Om zwanger te kunnen worden is er vaak meer nodig dan een eicel en een zaadcel die elkaar toevallig tegenkomen; je lichaam en geest moeten beide in goede conditie zijn. Zonder dat je er zelf vaak erg in hebt is er veel wat je kunt doen om je kansen op een zwangerschap binnen korte tijd enorm te zien toenemen.&nbsp;We helpen je graag door inzicht te geven in jouw persoonlijke situatie en geven advies, coaching en een berg informatie zodat ook jij snel(ler) zwanger kunt worden.&nbsp;Wonderwens gebruikt daarvoor de volgende tools:&nbsp;</p><h2>Zwanger worden doe je zo</h2><p>Vers van de pers… met het nieuwe boek ‘ Zwanger worden doe je zo’&nbsp; heb je een compleet handboek in handen boordevol informatie, tips en oefening die je zullen helpen om snel zwanger te worden. &nbsp; Er wordt zo weinig mogelijk stilgestaan bij wat er allemaal mis kan gaan en vooral aandacht besteed aan oplossingen.&nbsp; Je zult hiermee zelf het heft in handen kunnen nemen met betrekking tot je vruchtbaarheid en snel je kans op een zwangerschap zien toenemen. &nbsp;In het boek vind je bovendien een programma van zes weken, de wonderwens-methode,&nbsp; dat&nbsp; je samen met je partner, kunt volgen. Aan de hand van opdrachten doorloop je iedere week een ander aandachtsgebied en word je stap voor stap op weg geholpen om de nodige aanpassingen in je levensstijl te doen. &nbsp;</p>\r\n<p>Het is belangrijk dat je je nauwgezet aan het advies en programma houdt om je vruchtbaarheid zo optimaal mogelijk te vergroten, dat vergt vaak een verandering van je levensstijl die niet altijd makkelijk is. Met het programma, het boek en eventueel extra coaching is dit zeker voor iedereen te bereiken.</p><h2>Persoonlijk advies</h2><p>Ben je op zoek naar de oorzaak én een oplossing voor het uitblijven van een zwangerschap? Wonderwens helpt je bij het in kaart brengen van je aandachtspunten door middel van het opstellen van een uitgebreid persoonlijk advies, helemaal toegespitst op jouw situatie.&nbsp; Want, pas wanneer je jouw persoonlijke aandachtsgebieden kent zul je dit gericht kunnen aanpakken.&nbsp;<span><br></span>Door het invullen van een uitgebreide vragenlijst kan een goed en volledig beeld geschetst worden van jullie aandachtspunten en kan vaak duidelijk worden aangegeven waar de schoen wringt. Vervolgens ga je met de adviezen die gegeven worden zelf aan de slag om je kansen op een zwangerschap snel te vergroten.</p><h2>Coaching bij Wonderwens</h2><p>Wanneer je behoefte hebt aan een extra steuntje in de rug tijdens het volgen van het programma, &nbsp;het moeilijk vindt om veranderingen toe te passen, je mindset aan te passen, &nbsp;het even niet meer ziet zitten (want laten we wel zijn, wanneer een zwangerschap uitblijft kan dat mentaal erg zwaar zijn) of een specifieke vraag hebt, kan coaching een uitkomst bieden.&nbsp;</p><p>Wonderwens kiest voor e-coaching. Uit wetenschappelijk onderzoek, en in de praktijk, is gebleken dat dit een zeer effectieve manier is om snel vooruitgang te boeken. &nbsp;Door te schrijven (ofwel typen) wordt direct een mentaal proces in werking gezet dat aanzet tot verandering. In je eigen woorden en op het moment dat het jou uitkomt orden je je gedachtes en sta je stil bij zaken die je aandacht verdienen. &nbsp;Je hebt alle tijd om goed na te denken over wat je wilt schrijven waardoor je als vanzelf je gedachtes ordent en verheldert. Zowel jouw berichten als de berichten die van je coach ontvangt kun je nog eens doorlezen wanneer je maar wilt.&nbsp;</p><p>Je hoeft geen afspraak te maken; wanneer je gedachtes, vragen of even tijd vrij hebt kun je direct gaan schrijven, zonder op de volgende afspraak met je coach te hoeven wachten.&nbsp;</p><p>De voordelen van online coaching bij Wonderwens op een rijtje:&nbsp;</p><ul>\r\n<li>Ondersteuning en coaching tijdens het Wonderwens-programma voor een optimaal resulaat</li>\r\n<li>Ervaren coaches met gespecialiseerde kennis van alle ins en outs op gebied van zwanger worden</li>\r\n<li>Effectief en comfortabel vanuit je eigen huis</li>\r\n<li>Het&nbsp;</li>\r\n<li>Dag, nacht of weekend; schrijven wanneer je wilt &nbsp;</li>\r\n<li>Professionele coaching zonder een afspraak te maken en zonder de deur uit hoeven gaan</li>\r\n<li>Makkelijk in te passen in een druk en hectisch leven</li>\r\n<li>Via de mail praten over seks en daaraan gerelateerde problemen is&nbsp; makkelijker; de anonimiteit van mailen geeft meer gelegenheid om open te zijn</li>\r\n<li>Schrijven zet direct het proces naar verandering in gang; je zet letterlijk je gedachten op een rijtje</li>\r\n<li>Je hebt alle tijd om na te denken over je antwoorden en de vragen die je nog wilt stellen&nbsp;</li>\r\n<li>Wonderwens kent een brede klantenkring, uit heel Nederland en is op deze manier voor iedereen bereikbaar, zonder te hoeven reizen!&nbsp;</li></ul><p>Klik op deze link voor het aanbod van onze <a href=\"{APPLICATION_URL/page/128}\" target=\"_self\">pakketten en prijzen</a>.</p>\r\n','','','','','',0,0,'1','werkwijze','De werkwijze van Wonderwens','Benieuwd naar wat Wonderwens te bieden heeft? Kijk op deze pagina naar de mogelijkheden.','','2013-05-11 08:08:56',5,'2013-05-15 11:11:37',1,'1','',''),(12,'Over Ons','','content','0','Over Wonderwens','<p><p>Wonderwens is opgericht door Marije Jelsma (34) nadat ze ervaarde dat er een schreeuwende behoefte is aan duidelijke en heldere informatie over wat je zelf kunt doen om je vruchtbaarheid te optimaliseren. <span><br></span>Want, tussen alle goedbedoelde adviezen van vrienden en kennissen, nieuws over onderzoeksresultaten en berichten op internet zie je soms door de bomen het bos niet meer. Wat is nu goed om te doen en wat juist niet? <span><br></span>De afgelopen jaren heeft Marije een studie gemaakt van dit onderwerp, onderzoek gedaan en zich gespecialiseerd tot deskundige op het gebied van het verbeteren van je vruchtbaarheid en zwanger worden. </p><p>Na een aantal jaren gewerkt te hebben in commerciële functies, als intercedent en sales manager, werd Marije steeds meer getrokken tot het inspireren en begeleiden van mensen en maakte ze de overstap naar een functie als coach. Vanuit deze functie heeft ze de afgelopen 10 jaar mensen uit alle hoeken van de samenleving begeleid en gecoached en daarmee een dijk aan ervaring opgedaan. <span><br></span>Haar coachingsstijl is betrokken, enthousiast, toegankelijk en altijd stimulerend. </p>\r\n<p>Nu is ze niet alleen een motiverende coach maar ook ervaringsdeskundige, moeder en de eerste en enige conceptieconsulent van Nederland! <br></p></p>\r\n','','','','','',0,0,'1','over_wonderwens','Wonderwens stelt zich voor','kijk snel op deze pagina om te lezen over Wonderwens en Marije Jelsma, conceptieconsulent ','wonderwens, conceptieconsulent, conceptieconsulenten, Marije Jelsma ','2013-05-11 08:11:06',5,'2013-05-11 20:47:46',1,'1','',''),(13,'Voor wie','','content','0','Voor iedereen met een wonderwens','<p>Daar kunnen we kort over zijn; Wonderwens is er voor iedereen met een (nog) onvervulde zwangerschapswens en hierbij wel een steuntje in de rug kan gebruiken.  Of je nu net begonnen bent met het vervullen van je kinderwens, al een aantal jaar probeert zwanger te worden, in het medische circuit zit en behandelingen ondergaat, IUI of IVF, of het via de natuurlijke weg probeert.. het maakt niet uit; Wonderwens is er voor iedereen die zwanger wil worden. Hierboven vind je een aantal situatie die meer gespecificeerd zijn. </p><p>In de praktijk is gebleken dat de meeste stellen die ons benaderen al langere tijd proberen zwanger te worden en waarbij een zwangerschap meestal om onverklaarbare redenen uitblijft.  Om deze reden wordt in het boek en op deze website veelal aan deze doelgroep gerefereerd.</p>\r\n','','','','','',0,0,'1','voor_wie','Voor iedereen met een wonderwens','wonderwens adviseert, coacht en ondersteunt iedereen die zwanger wil worden en haar eigen vruchtbaarheid wil verbeteren. Vanaf de eerste onbeschermde cyclus  tot en met icsi en ivf','zwanger worden, ivf, vruchtbaarheid verbeteren','2013-05-11 08:11:25',5,'2013-05-11 19:24:33',1,'1','',''),(14,'Nieuws','','content','0','Nieuws','<br><h2>Kwaliteit sperma beter in winter en het vroege voorjaar</h2><p>En dat net nu de zomer voor de deur staat… </p><p>Israelische wetenschappers zijn tot de conclusie gekomen dat de kwaliteit van sperma op haar best is in de winter en in het vroege voorjaar. De wetenschappers onderzochten het zaad van ruim 6000 mannen die werden behandeld voor onvruchtbaarheid. Daaruit bleek dat hun sperma vooral in de winter sneller zwom en minder afwijkingen vertoonde. In de loop van het voorjaar ging de kwaliteit weer achteruit. Het verschijnsel deed zich vooral voor bij de mannen met een hoge productie van spermatozoïden. Bij mannen die minder spermatozoïden in hun zaad hebben stijgt de kwaliteit juist in de herfst. De resultaten zijn in maart 2013 gepubliceerd in het American Journal of Obstetrics & Gynecology. </p><p>Gelukkig kun je bij Wonderwens gedurende het hele jaar terecht voor tips en adviezen over het verbeteren van de kwaliteit van je (partners) sperma. </p><p>Bron: ANP</p><p><br></p><h2>Vrouwen die gezond eten boeken meer succes bij IVF </h2><p>Je levensstijl en voeding speelt een cruciale rol bij het verbeteren van je vruchtbaarheid en het verhogen van je slagingskansen bij medische procedures als IVF. </p><p>In februari van dit jaar werd dat nogmaals bekrachtigd door onderzoek van John Twigt van het Erasmus MC. Vrouwen die veel fruit en volkoren producten eten, hebben een grotere kans op een succesvolle ivf-behandeling. Bij een ivf-behandeling worden eicellen buiten het lichaam bevrucht en vervolgens teruggeplaatst in de baarmoeder. John Twigt ontdekte dat vrouwen die gezond eten en weinig ongezond snacken een tot 60% grotere kans hebben op een zwangerschap na een ivf-behandeling.  Vrouwen met een gezond eetpatroon maken minder hormonen aan tijdens een ivf-behandeling, wat een gunstig effect heeft op het baarmoederslijmvlies. Bij vrouwen die gezond eten is het slijmvlies beter voorbereid en is de kans dat het embryo blijft zitten groter. </p><p>Reden te meer om je voedingspatroon eens goed onder de loep te nemen! </p><p>Bron: ANP</p>\r\n','','','','','',0,0,'0','nieuws','het laatste nieuws over zwanger worden en vruchtbaarheid','Bij Wonderwens vind je altijd het laatste nieuws over zwanger worden en vruchtbaarheid, onderzoeksresultaten en vele extra’s als bmi-calculator en temperatuurcurve','nieuws zwanger worden, bmi-calculator, temperatuurcurve downloaden','2013-05-11 08:12:14',5,'2013-05-15 11:25:18',1,'1','0','0'),(21,'Zwanger worden lukt niet','','content','0','Zwanger worden lukt niet','<p>Je wilt graag zwanger worden en begint vol goede moed aan dit avontuur, maar na een jaar is er nog geen zwangerschap tot stand gekomen, de maanden verstrijken, je gaat je zorgen maken en belandt in het medische circuit.&nbsp;</p>\r\n<p>Bij steeds meer stellen lukt zwanger worden niet vanzelf en de statistieken tonen aan dat deze percentages in de toekomst verder zullen stijgen.&nbsp; In verreweg de meeste gevallen wordt de diagnose ‘onverklaarbaar onvruchtbaar’ gesteld. Oftewel, de vruchtbaarheidsonderzoeken die gedaan zijn hebben geen afwijkingen aangetoond en in zowel jij als je partner zijn allebei vruchtbaar.&nbsp;</p>\r\n<p>Wat staat dan toch een zwangerschap in de weg? De oorzaak ligt vaak in je levensstijl en met een paar aanpassingen kun je zelf het heft in handen nemen om je kansen op een zwangerschap te optimaliseren en snel zwanger te worden.&nbsp;</p>\r\n<p>Wonderwens geeft je door middel van een persoonlijk advies inzicht in jouw knelpunten rond zwanger worden en helpt je waar nodig op weg om de nodige aanpassingen te doen.</p><h2>Zwanger worden lukt niet om verklaarbare redenen</h2><p>Als je om zwanger te kunnen worden aangewezen bent op het gebruik van medische technieken als IUI, ICSI of IVF wil je iedere behandeling die je krijgt zo optimaal mogelijk benutten. Wanneer je zelf in een mentale en lichamelijke goede conditie bent stijgt je slagingskans bij deze behandelingen enorm.&nbsp; Immers, wanneer jij ervoor open staat zal je lichaam een zwangerschap gemakkelijker accepteren.&nbsp;</p>\r\n<p>De wonderwens-methode helpt je om zo sterk mogelijk in je schoenen te staan en problemen uit de weg te ruimen zodat ook jij het heft zelf in handen kunt nemen om zwanger te worden, ook wanneer het probleem bij je partner ligt.&nbsp;</p><h3>Wonderwens wanneer zwanger worden niet lukt</h3><p>Of het nu een verklaarbare of onverklaarbare reden heeft ,&nbsp; het uitblijven van een zwangerschap kan je heel onzeker en angstig maken. Niet nodig! Wonderwens biedt je verschillende tools om achter de oorzaak van het uitblijven van een zwangerschap te komen en een oplossing te vinden.&nbsp;</p>\r\n','','','','','',0,0,'1','zwangerwordenluktniet','Als zwanger worden niet lukt','Gaat zwanger worden bij jullie niet vanzelf? Wonderwens adviseert en coacht je om zelf het heft in handen te nemen en je vruchtbaarheid snel te verbeteren wanneer zwanger worden niet lukt. ','zwanger worden lukt niet, zwangerschap blijft uit, tweede zwangerschap blijft uit ','2013-05-11 19:28:56',1,'2013-05-11 19:37:36',1,'1','0','0'),(22,'Zwanger worden met pcos','','content','0','Zwanger worden met PCOS ','<p>PCOS kan je kinderwens behoorlijk dwarsbomen. Het staat voor polycysteus ovariumsyndroom, een aandoening waarbij zich vochtblaasjes (cystes) vormen in de eileiders waardoor de eisprong uit kan blijven en de menstruatiecyclus vaak onregelmatig is. Maar liefst 5 tot 15% procent van de vrouwen die zwanger willen worden worden met pcos gediagnosticeerd.&nbsp;</p><p>Het goede nieuws; PCOS is vaak goed te behandelen. Door het aanpassen van je levensstijl verhoog je je kansen op een natuurlijke zwangerschap enorm. Vaak is het afvallen van 5 tot 10% van je totale lichaamsgewicht al voldoende om deze aandoening uit de weg te ruimen en daarnaast zijn gezond eten en bewegen heel belangrijk.&nbsp;</p>\r\n<p>Soms is een combinatie van het aanpassen van je levensstijl en een medische behandeling, zoals het slikken van hormoontabletten, noodzakelijk.&nbsp;</p><h2>Wonderwens bij PCOS&nbsp;</h2>\r\n<p>Bij Wonderwens vind je alles wat je moet weten om zelf het heft in handen te nemen en je vruchtbaarheid snel te verbeteren bij PCOS.&nbsp;</p>\r\n','','','','','',0,0,'1','zwanger_worden_met_pcos','Zwanger worden met pcos','Zwanger worden met pcos, het kan! Kijk snel op onze website voor de juiste tools en tips om je vruchtbaarheid snel te verbeteren. ','zwanger worden, pcos','2013-05-11 19:30:47',1,'2013-05-11 19:40:12',1,'1','0','0'),(23,'Snel zwanger worden','','content','0','zo snel mogelijk zwanger worden ','<p>Ben je net gestopt met het gebruik van voorbehoedsmiddelen en wil je weten wat je kunt doen om zo snel mogelijk zwanger te worden? Dan ben je bij Wonderwens aan het juiste adres.&nbsp;</p><p>Het boek ‘zwanger worden doe je zo’ staat vol met alles wat jij en je partner moeten weten om snel zwanger te worden. Je leest o.a. over je menstruatiecyclus en hoe je er precies achter kunt komen wat je vruchtbare periode is, de beste standjes, voeding, maar ook hoe je door middel van het doen van oefeningen jezelf in optimale conditie kunt brengen om zo snel mogelijk zwanger te worden.&nbsp;</p><p>Met een persoonlijk advies krijg je inzicht in alles waar jij nog op moet letten en tips over de aanpassingen die je nog kunt doen in je levensstijl zodat niks een zwangerschap in de weg staat.&nbsp;</p><br><p></p>','','','','','',0,0,'1','snel_zwanger_worden','Snel zwanger worden met een beetje hulp van Wonderwens','Wil je snel zwanger worden? Wonderwens biedt je de juiste informatie, tools en tips om zo snel mogelijk resultaat te zien.','snel zwanger worden, tips zwanger worden, vruchtbare periode','2013-05-11 19:35:17',1,'0000-00-00 00:00:00',0,'1','0','0'),(24,'Zwanger worden via ivf of iui','','content','0','zwanger worden via IVF','<p>IVF, wat staat voor In Vitro Fertilisatie (reageerbuisbevruchting) wordt steeds vaker toegepast. Niet alleen wanneer een duidelijke oorzaak voor verminderde vruchtbaarheid is vastgesteld, maar ook wanneer er geen duidelijke oorzaak is en een zwangerschap uitblijft. </p>\r\n<p>Afhankelijk van de oorzaak en je leeftijd  kom je voor een ivf-behandeling in aanmerking wanneer een zwangerschap na 2 tot 4 jaar proberen uitblijft. </p>\r\n<p>Het is een zwaar traject waarbij de cyclus nagebootst wordt door middel van medicatie. Door hormooninjecties wordt ervoor gezorgd dat er meerdere eicellen rijpen, zodat bij de punctie die daarop gedaan wordt direct meerdere eicellen kunnen worden opgezogen. Deze worden in vitro bevrucht met het sterkste zaad van de man en vervolgens  worden de embryo’s van de beste kwaliteit teruggeplaatst in de baarmoeder. <br>\r\nDit is een zeer precair proces, waarbij de slagingskans ongeveer 15 tot 20% per behandeling bedraagt.  Uiteindelijk volgt voor ongeveer de helft van alle stellen een zwangerschap.</p><h2>zwanger worden via ICSI</h2><p>ICSI is de afkorting voor Intra Cytoplasmatische Sperma Injectie, wat staat voor het injecteren van een vooraf geselecteerde zaadcel in de eicel.  Een behandeling die gedaan kan worden wanneer blijkt dat man verminderd vruchtbaar is. </p>\r\n<p>De behandeling staat voor jullie gelijk aan een ivf-behandeling, alleen de procedure in het lab is anders en de slagingskansen liggen iets hoger, rond 20% per behandeling. Dit komt met name doordat er voor de vrouw in dit geval meestal geen belemmering is om zwanger te worden. </p><h2>zwanger worden via IUI</h2><p>Wanneer een zwangerschap na een jaar proberen uit blijft en daarvoor geen directe oorzaak gevonden kan worden wordt vaak gekozen voor IUI als eerste behandeling die wordt toegepast. Het staat voor intra-uteriene inseminatie en het is een techniek waarbij zaadcellen, op precies het juiste moment, in de baarmoeder worden ingebracht. Wanneer de eisprong (bijna) plaats vindt worden de meest sterke zaadcellen van de man in de baarmoeder gespoten, waardoor ze al een eindje op weg geholpen worden. Soms worden hierbij voor de vrouw ook hormooninjecties voorgeschreven. </p>\r\n<p>De slagingskans ligt tussen 5 en 25% per behandeling, afhankelijk van diverse factoren als leeftijd en levensstijl. </p><h3>Wonderwens en IVF, ICSI of IUI</h3><p>Welke behandeling je ook ondergaat, wanneer je om zwanger te kunnen worden afhankelijk bent van de medische wereld wil je iedere kans op een zwangerschap zo optimaal mogelijk benutten. Dit bereik door je lichamelijk en geestelijk in goede conditie te zijn. Onderzoeken hebben meerdere malen aangetoond dat je levensstijl van grote invloed is op het slagen van een vruchtbaarheidsbehandeling. Een goede voorbereiding is nu dan ook belangrijker dan ooit tevoren. Wonderwens helpt je om je kans op een zwangerschap zo groot mogelijk te maken, door je advies te geven over het aanpassen van je levensstijl en tips te geven om dit spannende proces zo fit en evenwichtig mogelijk te kunnen doorlopen.  De slagingskansen per behandeling nemen daardoor enorm toe. </p>\r\n<p>Wanneer je behoefte hebt aan een extra steuntje in de rug kun je bij Wonderwens ook terecht voor coaching. </p>','','','','','',0,0,'1','zwanger_worden_via_ivf_of_iui','Zwanger worden via IUI, ICSI of IVF','Word je zwanger via IUI, ICSI of IVF?  Kijk snel op onze website om te ontdekken wat je zelf kunt doen om je slagingskansen per behandeling snel te zien toenemen. ','zwanger worden IUI, zwanger worden ICSI, zwanger worden IVF ','2013-05-11 19:44:56',1,'2013-05-11 19:45:20',1,'1','0','0'),(25,'Zwanger worden na miskraam','','content','0','Opnieuw zwanger worden na een miskraam ','<p>In de eerste drie maanden van een zwangerschap wordt het meeste werk verricht; cellen vermenigvuldigen zich in razend tempo en alle organen worden gevormd. Het is een periode waarin veel mis kan gaan en.. soms gebeurt dat ook. Een miskraam is het gevolg van het niet goed ontwikkelen van de embryo waardoor je lichaam het vruchtje afstoot. Een op de tien vrouwen krijgt te maken met een miskraam.&nbsp;<span><br></span>Wanneer je de pech hebt dat je een miskraam meemaakt kan dit een grote impact hebben.&nbsp;<span><br></span>Je wilt misschien snel opnieuw zwanger worden, maar bent bang voor een herhaling en juist die angst kan een nieuwe zwangerschap in de weg staan doordat het je mentaal blokkeert en daardoor minder open staat voor zwanger worden.&nbsp;</p><p>Medisch gezien is er geen reden om een nieuwe zwangerschap uit te stellen. Uit onderzoek is zelfs gebleken dat wanneer je binnen 6 maanden na een miskraam opnieuw zwanger wordt de grootste kans hebt op een gezonde zwangerschap. &nbsp;En, weet dat de meeste zwangerschappen, ook na een miskraam, goed verlopen. Pas als er sprake is van meerdere miskramen is het goed om dit te laten onderzoeken omdat er wellicht een onderliggende reden is die kan worden aangepakt.&nbsp;</p><h2>Wonderwens en zwanger worden na een miskraam</h2><p>Wonderwens biedt advies, tips en ondersteuning wanneer je opnieuw zwanger wilt worden. Door het volgen van de wonderwens-methode breng je jezelf zowel mentaal als lichamelijk in goede conditie waardoor je kans op een gezonde zwangerschap optimaal zal zijn. Een miskraam is niet te voorkomen, maar je kunt wel zelf het heft in handen nemen om na deze gebeurtenis je angsten uit de weg te ruimen en je levensstijl aan te passen zodat je kans op een gezonde zwangerschap snel weer zal toenemen.</p>','','','','','',0,0,'1','zwanger_worden_na_miskraam','zwanger worden na een miskraam','Wil je opnieuw zwanger worden na een miskraam maar ben je bang voor herhaling?  Wonderwens biedt advies, tips en ondersteuning om dit te voorkomen. ','zwanger worden na miskraam, miskraam, angst zwanger worden','2013-05-11 19:47:54',1,'0000-00-00 00:00:00',0,'1','0','0'),(26,'Gezond zwanger','','content','0','Gezond zwanger worden en een gezonde baby krijgen','<p>Iedereen die zwanger wil worden hoopt op een gezonde zwangerschap en het krijgen van een gezond kind. De basis hiervoor wordt al gelegd voor de conceptie. Over het belang van een evenwichtige levensstijl voorafgaand aan een zwangerschap en de invloed hiervan op het verlopen van de zwangerschap en de ontwikkeling van het embryo wordt steeds meer bekend. Er is nu veel meer kennis en informatie om al voor de zwangerschap de kans op een gezond kind te kunnen vergroten.  Wanneer jij in een goede conditie bent zal een zwangerschap makkelijker tot stand kunnen komen en zal het  over het algemeen gezonder verlopen. Bovendien, al in de eerste weken van de zwangerschap wanneer je misschien nog niet eens weet dat je zwanger bent blijkt je eigen gezondheid en de invloed hiervan op de ontwikkeling van embryo en placenta al erg belangrijk te zijn.  De zorg voor je baby begint dus niet wanneer je al zwanger bent, want dan kun je de eerste ontwikkelingsperiode al niet meer beïnvloeden, maar juist ook voor de zwangerschap. Neem daarom al voordat je zwanger wordt je levensstijl onder de loep en maak aanpassingen als deze nodig zijn.  </p><h2>Wonderwens en gezond zwanger worden</h2><p>Bij Wonderwens vind je alle informatie die je nodig hebt om gezond aan je zwangerschap te beginnen. Waar moet je op letten, welke producten kun je beter laten staan en wat kun je zelf doen om je kansen op een gezonde zwangerschap te vergroten? De Wonderwens-methode is volledig gericht op het vormen van een gezonde basis voor een gezonde zwangerschap. Wonderwens helpt je graag op weg! </p>\r\n','','','','','',0,0,'0','gezond_zwanger','gezond zwanger worden','Iedereen hoopt op een gezond kind. Wonderwens geeft door middel van preconceptiezorg tal van tips, informatie en advies om de kans op een gezonde baby te vergroten. ','gezond zwanger worden, gezonde baby, gezond kind, gezonde zwangerschap','2013-05-11 19:50:48',1,'2013-05-11 21:51:04',1,'1','0','0'),(27,'Zwanger worden van een tweede kindje','','content','0','Een tweede (of volgende) zwangerschap blijft uit','<p><p>Je hebt al een kindje en wilt graag een tweede (of derde, vierde..) kindje maar zwanger worden lukt niet?&nbsp;Je vruchtbaarheid kan veranderen, bij zowel man als vrouw. &nbsp;Dit kan verschillende oorzaken hebben, zoals leeftijd, een nare ervaring bij de bevalling van je eerste kind, stress of onzekerheid over dat het niet lukt of je levensstijl.&nbsp;<span><br></span>Wees niet bang, je bent niet plotseling onvruchtbaar en vaak kun je met het doen van een aantal aanpassingen je kans om opnieuw zwanger worden al enorm vergroten.</p><h2>Wonderwens en zwanger worden van een tweede kindje</h2><p>Wonderwens helpt je om achter de oorzaak van het uitblijven van een zwangerschap te komen en bied een oplossing om snel je vruchtbaarheid te vergroten en zwanger te worden van een broertje/zusje.&nbsp;<span><br></span>Door middel van ons persoonlijk advies krijg je inzicht in jouw persoonlijke situatie en aandachtspunten. &nbsp;Met de wonderwens-methode kun je vervolgens zelf aan de slag om je vruchtbaarheid snel weer te optimaliseren. Heb je behoefte aan extra advies of coaching, ook dat kan bij Wonderwens!&nbsp;</p></p>','','','','','',0,0,'1','tweedekindje','Zwanger worden van een tweede kindje lukt niet','Je hebt al een kindje en wil graag een tweede (of derde) maar zwanger worden lukt niet? Bij Wonderwens vindt je alle info om achter de oorzaak te komen én een oplossing te vinden.','zwanger worden tweede kindje, zwanger worden tweede kindje lukt niet','2013-05-11 19:54:06',1,'0000-00-00 00:00:00',0,'1','0','0'),(28,'Pakketten &amp; prijzen','','content','0','Pakketten en prijzen','<p>Wonderwens gelooft in een individuele aanpak; geen mens is gelijk en iedere situatie rond zwanger worden is anders. We hebben daarom een aantal pakketten samengesteld waaruit je kunt kiezen, afgaand op jouw eigen behoefte. </p>\r\n<p><b>Pakket 1: </b></p><ul><li>Persoonlijk plan van aanpak en uitgebreid advies <br></li><li>Boek \'zwanger worden doe je zo\' inclusief de wonderwens-methode</li></ul>\r\n<p>Prijs:  139 euro</p>\r\n<p><b>Pakket 2:</b></p><ul><li>Persoonlijk plan van aanpak en uitgebreid advies<br></li><li>Boek ‘ zwanger worden doe je zo’ inclusief de wonderwens-methode <br></li><li>Twee coachingsmomenten tijdens het volgen van de methode: hoe gaat het, waar sta je nu, waar moet je nog op letten? </li></ul><p>Prijs:  279 euro</p><p><b>Pakket 3:</b> </p><ul><li>Persoonlijk plan van aanpak en uitgebreid advies<br></li><li>Boek ‘ zwanger worden doe je zo’ inclusief de wonderwens-methode <br></li><li>6 weken lang coaching tijdens het volgen van de methode: samen met de coach volg je iedere week de wonderwens-methode, word je gestimuleerd de nodige aanpassingen te doen en problemen worden uit de weg geruimd. (max. 2 coachingsmomenten per week)</li></ul><p>Prijs:  540 euro</p><p><i>Toelichting:</i></p><ul><li>Een coachingsmoment wordt gezien als 1 sessie, gegeven door de coach. Je kunt zelf zoveel schrijven en vragen als je wilt, wanneer je wilt. Er is geen beperking.  </li><li>Wanneer je een specifieke coachingsvraag hebt kun je ook kiezen voor een losse coachingssessie, dit kost 80 euro.</li><li>Alle prijzen zijn inclusief 21% btw.</li></ul><p></p>\r\n','','','','','',0,0,'0','pakketten_en_prijzen','Zwanger worden advies en coaching bij Wonderwens','Ben je op zoek naar coaching en advies rond zwanger worden? Bij Wonderwens ben je hiervoor aan het juiste adres!','coaching zwanger worden, advies zwanger worden, prijzen wonderwens','2013-05-11 20:10:13',1,'2013-05-11 22:02:12',1,'1','0','0'),(29,'Links','','content','0','Links','<p>Hier links</p>','','','','','',0,0,'1','links','Links voor pagina’s over zwanger worden en een gezonde levensstijl','Als je door de bomen het bos niet meer ziet vind je hier alle links die je nodig kunt hebben als je op zoek bent naar informatie over een gezonde levensstijl, vruchtbaarheid en zwanger worden. ','links zwanger worden, links vruchtbaarheid','2013-05-11 20:18:46',1,'0000-00-00 00:00:00',0,'1','0','0'),(30,'Vruchtbare dagen','','content','0','Download de wonderwens-temperatuurcurve','<p></p><p>Een van de basics van zwanger worden is het kennen van je menstruatiecyclus en het moment van je eisprong. Hoewel je vaak leest dat dit rond de veertiende dag in je cyclus plaatsvindt is dit voor iedere vrouw anders. &nbsp;Zo kan het goed zijn dat je eisprong al op dag 10 of 11 in je cyclus is en je daardoor iedere maand net te laat seks hebt en de plank mis slaat.&nbsp;</p><p>Een goede manier om erachter te komen hoe jouw cyclus in elkaar steekt is door dagelijks je basale lichaamstemperatuur op te meten, de temperatuur direct nadat je wakker wordt. Doordat de basale lichaamstemperatuur met ongeveer 0.2 graden stijgt na de eisprong kun je gemakkelijk aflezen wanneer de eisprong heeft plaatsgevonden. De temperatuur blijft zo hoog tot je volgende menstruatie en zal dan weer met 0.2 graden zakken.&nbsp;</p><p>Een nadeel van deze methode is dat je pas achteraf kunt zien dat je een eisprong gehad hebt, maar, na 2 of 3 maanden temperaturen is een duidelijk patroon te zien en kun je concluderen op welke dag in je cyclus de eisprong gewoonlijk plaatsvindt. Daarnaast kun je met deze methode goed zien of je inderdaad maandelijks ovuleert.&nbsp;</p><p>De gemeten temperatuur kun je gemakkelijk bijhouden door deze simpelweg op te schrijven of te noteren in een grafiek, waarna je je eisprong kunt aflezen. Deze grafiek kun je <a href=\"http://www.wonderwens.nl/Wonderwens-BasaleTemperatuurCurve.pdf\" target=\"_blank\">hier</a> downloaden.&nbsp;</p><p></p>\r\n','','','','','',0,0,'1','vruchtbare_dagen','download hier de Wonderwens-temperatuurcurve','Wil je precies weten wanneer jouw eisprong plaatsvindt en je het meest vruchtbaar bent? Download hier de temperatuurcurve','vruchtbare dagen, vruchtbare periode, downloaden temperatuurcurve','2013-05-11 20:20:40',1,'2013-05-15 12:01:49',1,'1','0','0'),(31,'Gewicht en zwanger worden','','content','0','Gewicht en zwanger worden ','<p><p>Zowel ondergewicht als overgewicht kan een belangrijke rol spelen in je vruchtbaarheid. Hoewel dit per vrouw verschilt kan over het algemeen gezegd worden dat je het meest vruchtbaar bent bij een bmi tussen 21 en 29. <span><br></span>Wanneer je te zwaar bent kan dit (ook voor mannen) zorgen voor verminderde vruchtbaarheid en bovendien voor problemen zorgen tijdens de zwangerschap, zoals een verhoogde kans op een miskraam of een te hoge bloeddruk. <span><br></span>Ook een te laag gewicht kan ervoor zorgen dat je verminderd vruchtbaar bent doordat het de menstruatiecyclus kan ontregelen.  Probeer daarom op een gezond gewicht te komen voordat je zwanger wordt. </p><p>Wil je weten waar jij staat? Bereken je bmi dan hier. </p></p>','','','','','',0,0,'1','bmi_calculator','bereken hier je bmi','wil je weten wat je bmi is en wat hiervan de invloed is op je vruchtbaarheid? Gebruik de bmi-calculator op www.wonderwens.nl ','bmi-calculator, gewicht zwanger worden, overgewicht zwanger worden, bmi zwanger worden','2013-05-11 20:22:14',1,'2013-05-11 20:22:30',1,'1','0','0'),(32,'popje.com','','content','0','Wonderwens werkt samen met popje.com','<p><p>De afbeeldingen op deze website zijn ter beschikking gesteld door popje.com.&nbsp;<span><br></span>Popje maakt prachtige geboortekaartjes en we zijn dan ook erg blij met deze samenwerking.&nbsp;<span><br></span>Ben je zwanger? Ga dan naar popje.com om je geboortekaartjes te bestellen.&nbsp;</p><br></p>','','','','','',0,0,'1','popje_com','Wonderwens werkt samen met popje.com','geboortekaartjes van popje.com','popje.com, wonderwens, geboortekaartjes','2013-05-11 20:24:13',1,'0000-00-00 00:00:00',0,'1','0','0'),(33,'Disclaimer','','content','0','Disclaimer','<p><p>Alle informatie en adviezen op deze website, in het persoonlijk advies en het boek ‘zwanger worden doe je zo’ zijn met grote zorgvuldigheid samengesteld, maar kunnen desondanks onvolledigheden of onvolkomenheden bevatten. Bezoek in geval van twijfel altijd je arts. <span><br></span>Een zwangerschap na deelname kan helaas niet worden gegarandeerd. </p><br></p>','','','','','',0,0,'0','disclaimer','','','','2013-05-11 20:27:20',1,'2013-05-11 21:50:51',1,'1','0','0'),(34,'Aanmelden','','content','0','Aanmelden','<p>Meldt u aan!</p>','','','','','',0,0,'0','aanmelden','Aanmelden','','','2013-05-11 22:01:41',1,'0000-00-00 00:00:00',0,'1','0','0'),(35,'Tools &amp; Extra\'s','','content','0','','<h1>Tools</h1><h3>Basale TemeratuursCurve</h3><p>De basale temperatuurcurve is... bladiebla</p><p>Download de basale temperatuurcurve hier.</p><h1>Extra\'s</h1>\r\n','tools_ex_extras','','','','',0,0,'0','tools_en_extras','Tools en Extra\'s','','','2013-05-15 11:24:51',1,'2013-05-15 11:36:45',1,'1','','');
+/*!40000 ALTER TABLE `m_cms_pages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `m_files_copies`
+--
+
+DROP TABLE IF EXISTS `m_files_copies`;
+CREATE TABLE `m_files_copies` (
+  `id` int(12) NOT NULL,
+  `src` mediumblob NOT NULL,
+  `name` varchar(128) collate utf8_unicode_ci NOT NULL,
+  KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `m_files_copies`
+--
+
+LOCK TABLES `m_files_copies` WRITE;
+/*!40000 ALTER TABLE `m_files_copies` DISABLE KEYS */;
+/*!40000 ALTER TABLE `m_files_copies` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `m_files_files`
+--
+
+DROP TABLE IF EXISTS `m_files_files`;
+CREATE TABLE `m_files_files` (
+  `id` int(12) NOT NULL auto_increment,
+  `name` varchar(64) collate utf8_unicode_ci NOT NULL,
+  `comment` varchar(64) collate utf8_unicode_ci NOT NULL,
+  `src` mediumblob NOT NULL,
+  `filename` varchar(256) collate utf8_unicode_ci NOT NULL,
+  `type` varchar(16) collate utf8_unicode_ci NOT NULL,
+  `ext` char(8) collate utf8_unicode_ci NOT NULL,
+  `size` char(50) collate utf8_unicode_ci NOT NULL,
+  `resize` enum('0','1') collate utf8_unicode_ci NOT NULL default '0',
+  `group` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `added` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `added_user_id` int(12) NOT NULL,
+  `edit` timestamp NOT NULL default '0000-00-00 00:00:00',
+  `edit_user_id` int(12) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `m_files_files`
+--
+
+LOCK TABLES `m_files_files` WRITE;
+/*!40000 ALTER TABLE `m_files_files` DISABLE KEYS */;
+/*!40000 ALTER TABLE `m_files_files` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `m_forms-elements`
+--
+
+DROP TABLE IF EXISTS `m_forms-elements`;
+CREATE TABLE `m_forms-elements` (
+  `id` int(12) NOT NULL auto_increment,
+  `form_id` int(12) NOT NULL,
+  `sequence_id` int(12) NOT NULL default '1',
+  `name` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `fieldname` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `label` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `sublabel` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `value` mediumtext collate utf8_unicode_ci NOT NULL,
+  `options` varchar(256) collate utf8_unicode_ci NOT NULL,
+  `type` enum('text','textarea','pulldown','checkbox','radio','date','seperator','comment','header') collate utf8_unicode_ci NOT NULL,
+  `required` enum('0','1') collate utf8_unicode_ci NOT NULL default '0',
+  `validation` enum('text','email') collate utf8_unicode_ci NOT NULL,
+  `status` enum('0','1') collate utf8_unicode_ci NOT NULL default '0',
+  `added` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `added_user_id` int(12) NOT NULL,
+  `edit` timestamp NOT NULL default '0000-00-00 00:00:00',
+  `edit_user_id` int(12) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `m_forms-elements`
+--
+
+LOCK TABLES `m_forms-elements` WRITE;
+/*!40000 ALTER TABLE `m_forms-elements` DISABLE KEYS */;
+INSERT INTO `m_forms-elements` VALUES (1,1,24,'Naam','naam','Uw naam','','','','text','1','text','1','2013-04-11 20:37:45',1,'2013-04-11 20:41:07',1),(2,1,22,'Sep','sep','','','','','seperator','','text','1','2013-04-11 20:38:32',1,'0000-00-00 00:00:00',0),(3,1,22,'Header','header','','','Aanmeldingsformulier','','header','','text','1','2013-04-11 20:38:50',1,'2013-04-22 12:16:41',1),(4,1,22,'Note','note','','','Vul hier uw persoonlijke gegevens in.','','comment','','text','1','2013-04-11 20:39:14',1,'2013-04-11 20:39:20',1),(5,1,25,'Achternaam','achternaam','Uw achternaam','','','','text','1','text','1','2013-04-11 20:39:41',1,'2013-04-11 20:41:03',1),(7,2,11,'Naam','naam','Uw naam','','','','text','1','text','1','2013-04-19 14:43:41',1,'2013-05-11 22:06:19',1),(8,2,12,'Emailadres','emailadres','Uw Emailadres','','','','text','1','text','1','2013-04-19 14:43:56',1,'2013-04-24 09:16:19',1),(9,2,22,'Bericht','bericht','Uw Bericht','','','','textarea','1','text','1','2013-04-19 14:44:10',1,'0000-00-00 00:00:00',0),(26,2,8,'Sep','sep','','','','','seperator','','text','1','2013-05-11 22:06:14',1,'2013-05-11 22:06:50',1),(27,2,9,'Header','header','','','Contactformulier','','header','','text','1','2013-05-11 22:06:39',1,'2013-05-11 22:06:43',1);
+/*!40000 ALTER TABLE `m_forms-elements` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `m_forms`
+--
+
+DROP TABLE IF EXISTS `m_forms`;
+CREATE TABLE `m_forms` (
+  `id` int(12) NOT NULL auto_increment,
+  `sequence_id` int(12) NOT NULL default '1',
+  `name` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `comment` varchar(256) collate utf8_unicode_ci NOT NULL,
+  `page_id` int(12) NOT NULL,
+  `evenement_id` int(12) NOT NULL,
+  `emailaddress` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `successmessage` varchar(256) collate utf8_unicode_ci NOT NULL,
+  `submitvalue` varchar(256) collate utf8_unicode_ci NOT NULL,
+  `added` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `added_user_id` int(12) NOT NULL,
+  `edit` timestamp NOT NULL default '0000-00-00 00:00:00',
+  `edit_user_id` int(12) NOT NULL,
+  `status` enum('0','1') collate utf8_unicode_ci NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `m_forms`
+--
+
+LOCK TABLES `m_forms` WRITE;
+/*!40000 ALTER TABLE `m_forms` DISABLE KEYS */;
+INSERT INTO `m_forms` VALUES (1,1,'Aanmeldformulier','',34,0,'wieger@medotdesign.com','bedankt!','verzenden','2013-04-11 20:37:30',1,'2013-05-11 22:04:57',1,'1'),(2,1,'Contactformulier','',9,0,'wieger@medotdesign.com','Bedankt voor uw bericht!','Verzenden','2013-04-19 14:43:25',1,'2013-04-19 14:45:58',1,'1');
+/*!40000 ALTER TABLE `m_forms` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `m_users`
+--
+
+DROP TABLE IF EXISTS `m_users`;
+CREATE TABLE `m_users` (
+  `id` int(12) NOT NULL auto_increment,
+  `gebruikersnaam` varchar(64) collate utf8_unicode_ci NOT NULL,
+  `wachtwoord` varchar(64) collate utf8_unicode_ci NOT NULL,
+  `emailadres` varchar(128) collate utf8_unicode_ci NOT NULL,
+  `name` varchar(32) collate utf8_unicode_ci NOT NULL,
+  `userlevel` enum('admin','user') collate utf8_unicode_ci NOT NULL default 'user',
+  `added` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `added_user_id` int(12) NOT NULL,
+  `edit` timestamp NOT NULL default '0000-00-00 00:00:00',
+  `edit_user_id` int(12) NOT NULL,
+  `status` enum('0','1') collate utf8_unicode_ci NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `m_users`
+--
+
+LOCK TABLES `m_users` WRITE;
+/*!40000 ALTER TABLE `m_users` DISABLE KEYS */;
+INSERT INTO `m_users` VALUES (1,'wieger','371620aa75830b1388b63305b0d42f06','wieger@medotdesign.com','Wieger Jelsma','user','2011-12-15 07:23:47',0,'2012-07-17 18:11:44',1,'1'),(5,'admin','371620aa75830b1388b63305b0d42f06','wtj@globalcontrive.com','Wieger Jelsma','admin','2012-06-15 10:07:07',1,'2013-04-10 13:36:27',5,'1');
+/*!40000 ALTER TABLE `m_users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2013-07-13  8:18:13

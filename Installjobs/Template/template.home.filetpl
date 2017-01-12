@@ -1,0 +1,8 @@
+<?php $this->includeTpl('includes/header.tpl'); ?>
+
+<h1>Application '<?=APPLICATION_NAME?>' Home</h1>
+<a href="<?=APPLICATION_URL.'/template/view/info' ?>">info</a>
+
+<?php
+$this->includeTpl('includes/footer.tpl'); 
+?>

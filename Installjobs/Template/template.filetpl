@@ -1,0 +1,8 @@
+<?php
+/**
+ * @name	#templatedir##templatename#
+ * @version	1.0 #date#
+ *
+ * @usage:	<?php $this->includeTpl('#templatedir##templatename#'); ?>
+ */
+?>

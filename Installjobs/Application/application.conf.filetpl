@@ -1,0 +1,23 @@
+<?php
+/**
+ * @name	Config Application #name#
+ */
+ 
+# active cache by these settings
+#$cfg['cache']['active'] = true;
+#$cfg['cache']['lifetime'] = '1 MONTH';
+#$cfg['cache']['excludemodules'][] = '';
+
+# this controller will default be called when no module is given
+$cfg['defaults']['controller'] = 'template';
+$cfg['defaults']['function'] = 'view';
+$cfg['defaults']['id'] = 'home';
+
+# template engine to use
+$cfg['defaults']['tplengine'] = 'Template.Php';
+
+# Multilingual options
+# false	-> url: mdt/<app>/<module>/<funtion>/<id>
+# true	-> url: mdt/<app>/<language>/<module>/<funtion>/<id>
+$cfg['multilingual'] = #multilingual#;
+$cfg['defaults']['language'] = 'en';

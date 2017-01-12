@@ -1,0 +1,17 @@
+		.form-row .editor iframe
+			{
+				height: 800px !important;
+				width: 	725px !important;
+				margin: auto;
+				background: #fff;
+			}
+			
+
+.redactor_box
+	{	     
+		background: #f1f1f1;			
+	}
+	
+.redactor_toolbar li a.re-myimages:before {
+   	content: "\e60f";
+}

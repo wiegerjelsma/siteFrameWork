@@ -1,0 +1,29 @@
+* shorturl 
+	- moet verplicht (alleen niet bij type 'voorgedefinieerd')
+	- checken op uniqueness
+	
+* menu
+	- een menu key aanmaken. Niet op 'Hoofdmenu' selecteren. Maar key kunnen ingeven.
+	
+* Redactor
+	- Fullscreen: Nu is het invulveld niet fullscreen..
+	- Link editor: Als ik een link maak zonder tekst, dan is de url {APPLICATION_URL/module/id} -> dit moeten we eigenlijk even resolven.
+	
+* Bij een sub item: Als ik op cancel druk ga ik teriug naar het hoofditem in plaats van naar het subitem.
+
+
+~~~
+
+LTC
+
+* Alle statussen standaard online
+* Check of alle shorturls uniek zijn en of ze alleen uit letters bestaan of niet. (of ervoor zorgen dat streepjes en cijfers ook mogen)
+* Als ik in het CMS kies voor 'redirect page', hoef ik geen SEO tags enzo te zien.. Die indeling van de blokken kan anders. Seo bij content.
+* checken of de 'http' verplicht is in te vullen in redactor editor bij externe link.
+* icoontjes in de page tree (die maojes moeten eruit)
+
+Lesroosters
+* Controller opzet is zoals competitie en evenementen (sub)
+* Hoofdrecord aangeven 'afdeling', en 'dag'.
+* Subrecord is 'groep', 'trainer', 'tijd' etc.
+In de front lezen we alle dagen uit, met per dag de groepen in kolommen geordend op suquence_id.

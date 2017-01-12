@@ -1,0 +1,20 @@
+[20-Jun-2016 14:22:15 Europe/Amsterdam] PHP Strict Standards:  Declaration of c_site_back_Home::view() should be compatible with c_site_back_Controller::view($a_Params = Array) in /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Applications/site/Applications/back/Controllers/Home/clsHome.php on line 0
+2016-06-20T14:22:15+02:00 EMERG (): Database::connect[DATABASE ERROR] : perhaps a failed login credential, or perhaps the RDBMS is not running
+2016-06-20T14:22:15+02:00 EMERG (): SQLSTATE[HY000] [1049] Unknown database 'osvt_statistics'
+[20-Jun-2016 14:22:17 Europe/Amsterdam] PHP Strict Standards:  Declaration of c_site_back_Home::view() should be compatible with c_site_back_Controller::view($a_Params = Array) in /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Applications/site/Applications/back/Controllers/Home/clsHome.php on line 0
+2016-06-20T14:22:17+02:00 EMERG (): Database::connect[DATABASE ERROR] : perhaps a failed login credential, or perhaps the RDBMS is not running
+2016-06-20T14:22:17+02:00 EMERG (): SQLSTATE[HY000] [1049] Unknown database 'osvt_statistics'
+2016-06-20T14:22:18+02:00 EMERG (): Database::connect[DATABASE ERROR] : perhaps a failed login credential, or perhaps the RDBMS is not running
+2016-06-20T14:22:18+02:00 EMERG (): SQLSTATE[HY000] [1049] Unknown database 'osvt_statistics'
+2016-06-20T14:22:20+02:00 EMERG (): [DATABASE ERROR] m_site_Files::getFiles
+"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'osvt_data.m_files_files' doesn't exist" at line 234 in file /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Library/Zend/Db/Statement/Pdo.php
+2016-06-20T14:22:20+02:00 EMERG (): SELECT `c`.`name`, `c`.`filename`, `c`.`ext` FROM `m_files_files` AS `c` WHERE (c.type <> 'image/jpeg') AND (c.type <> 'image/pjpeg')
+2016-06-20T14:22:20+02:00 EMERG (): Database::connect[DATABASE ERROR] : perhaps a failed login credential, or perhaps the RDBMS is not running
+2016-06-20T14:22:20+02:00 EMERG (): SQLSTATE[HY000] [1049] Unknown database 'osvt_statistics'
+2016-06-20T14:22:34+02:00 EMERG (): Database::connect[DATABASE ERROR] : perhaps a failed login credential, or perhaps the RDBMS is not running
+2016-06-20T14:22:34+02:00 EMERG (): SQLSTATE[HY000] [1049] Unknown database 'osvt_statistics'
+2016-06-20T14:22:40+02:00 EMERG (): [DATABASE ERROR] m_site_Files::getFiles
+"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'osvt_data.m_files_files' doesn't exist" at line 234 in file /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Library/Zend/Db/Statement/Pdo.php
+2016-06-20T14:22:40+02:00 EMERG (): SELECT `c`.`name`, `c`.`filename`, `c`.`ext` FROM `m_files_files` AS `c` WHERE (c.type <> 'image/jpeg') AND (c.type <> 'image/pjpeg')
+2016-06-20T14:22:40+02:00 EMERG (): Database::connect[DATABASE ERROR] : perhaps a failed login credential, or perhaps the RDBMS is not running
+2016-06-20T14:22:40+02:00 EMERG (): SQLSTATE[HY000] [1049] Unknown database 'osvt_statistics'

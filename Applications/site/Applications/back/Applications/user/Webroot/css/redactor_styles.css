@@ -1,0 +1,202 @@
+body
+	{
+		color: 			#cc0000;
+		padding: 		40px;
+		font-family: 	'Open Sans';
+	}
+	
+.panel
+	{
+		border: 1px solid #d8d8d8;
+		margin-bottom: 1.25rem;
+		background: #f2f2f2;
+		border-radius: 3px;
+		padding: 20px;
+	}
+.panel h1, .panel h2, .panel h3, .panel h4, .panel h5
+	{
+		line-height: 18px;
+		font-size: 18px;
+		margin: 0;
+		padding: 0;
+		margin-bottom: 10px;
+		font-weight: 300;
+		color: #339999;
+		
+	}
+.panel p
+	{
+		font-weight: 400;
+		line-height: 24px;
+		font-size: 14px;
+		margin: 0;
+		padding: 0;
+		color: 			#333333;		
+	}
+.panel a
+	{
+		font-weight: 400;
+		font-size: 14px;
+		color: #e45000;
+		line-height: 24px;
+		display: inline;
+	}
+h2
+	{
+		color: #339999;
+		font-size: 20px;
+		font-weight: 300;
+		line-height: 28px;
+	}
+h3
+	{
+		color: #339999;
+		font-size: 18px;
+		font-weight: 300;
+		line-height: 25.2px;
+	}
+h4
+	{
+		color: #666666;
+		font-size: 14px;
+		font-weight: 300;
+		line-height: 19.6px;
+	}
+
+p
+	{
+		font-size: 14px;
+		margin: 0;
+		padding: 0;		
+		margin-bottom: 24px;
+		line-height: 24px;	
+		color: 			#333333;	
+	}
+p a
+	{
+		text-decoration: underline;
+		color: #339999;
+		font-size: 14px;
+		margin: 0;
+		padding: 0;		
+		line-height: 24px;			
+		display: inline;
+	}
+p a:hover
+	{
+		color: #e45000;
+	}
+p.intro
+	{
+		font-size: 			20px;
+		color: 				#999;
+		line-height: 		28px;
+		font-weight: 		400;
+		margin-bottom: 		40px;
+	}
+h2, h3, h4, h5
+	{
+		margin-top: 		40px;
+	}	
+p.blockquote
+	{
+		width: 				50%;
+		float: 				right;
+		padding-left: 		20px;
+		font-style: 		italic;
+		color: 				#339999;
+		margin: 			0 0 20px 20px;							
+		background: 		url("http://osteovitaal.nl/siteRoot/site.front/img/quotes.gif") no-repeat left top;
+		padding-left: 		50px;
+		
+		font-family: 		Georgia, serif;
+		font-size: 			18px;
+		line-height: 		22px;
+	}
+	
+p.quote_inside
+	{
+		color: 						#339999;
+		padding-left: 				10px;
+		padding-top: 				0px;
+		margin-top: 				20px;
+		border-left: 				1px solid #339999;
+		
+		span
+		    {
+		    	color: 					#e45000;
+		    	font-style: 			italic;
+		    	font-size: 				11px;
+		    }
+	}	
+		
+ul
+	{
+		color: #333333;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 22px;
+		padding-left: 20px;
+		list-style: none;	
+		margin-left: 18px;
+		margin-bottom: 20px;
+		padding-left: 20px;	
+	}
+ul li
+	{
+		display: list-item;
+		text-align: -webkit-match-parent;		
+	}
+ul li:before
+	{
+		content: "•";
+		color: #339999;
+		margin-right: 10px;
+	}
+	
+p Img
+	{
+		border: 1px solid #339999;
+		padding: 1px;
+		margin: 0 0 20px;
+		width: 100%;
+		float: left;
+		display: block;
+	}
+p Img.left
+	{
+		float: left;
+		margin: 0 20px 20px 0;
+		width: 216px;
+	}
+p Img.right
+	{
+		float: right;
+		width: 216px;
+		margin: 0 0 20px 20px;
+	}
+	
+p.dummy
+	{
+		border: 1px dotted #e1e1e1;
+		padding: 10px;
+		border-radius: 3px;
+		color: #d1d1d1;
+		font-size: 11px;
+		width: 612px;
+		float: left;
+		clear: both;
+	}
+p.comment
+	{
+		background: 		#f2fdab;
+		padding: 			10px;
+		font-size: 			12px;
+		font-weight: 		400;
+		border-color: 		#f8d300;		
+		color: 				#3b547e;
+		width: 				612px;
+		border-radius: 		5px;
+		margin: 			10px 0;
+		clear: 				both;
+	}

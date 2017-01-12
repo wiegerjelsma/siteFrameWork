@@ -1,0 +1,34 @@
+REDACTOR PLUGINS
+
+MyLink
+Dit is een plugin waarin we interne, externe en links naar files kunnen maken.
+Wat we ook kunnen maken zijn links naar custom controllers (bijvoorbeeld naar een product).
+
+Hoe dat laatste te doen.
+1) Open de file: 'cms.back Webroot JS / redactorplugins.js' 
+2) Maak op regel 18 een record aan voor de controller in het uitklapmenuutje.
+3) Maak een callback functie aan net zoals daar staat voor 'blog'.
+
+
+		// Callback na het openen van de modal
+		var callback_module_blog = $.proxy(function(){
+			$('#redactor_modal select[module!="blog"]').hide();			
+		
+			this.saveSelection();		
+			
+			var selected = this.getSelectedHtml();
+			$('#redactor_modal #mylink_module-linktext').val(selected);
+			
+			// set the domainname					
+			$('#redactor_modal #label').text('Blog');
+
+			// Handler na het sluiten van de modal
+			$('#redactor_modal #mylink_module-insert').click($.proxy(function(){
+				this.insertModule('blog');					
+				return false;
+					
+			}, this));
+		}, this);
+		
+4) Open de file 'cms.back Templates jstemplates / redactormodals.tpl'
+5) Maak op regel acht een select voor de controller aan en loop door de records van die controller

@@ -1,0 +1,14 @@
+<?php
+/**
+ * @name	#class#Exception
+ * @author 	wiegerjelsma
+ * @version	1.0 #date#
+ */
+class #class#Exception extends #extend#Exception {}
+
+/**
+ * @name	#class#
+ * @author 	wiegerjelsma
+ * @version	1.0 #date#
+ */
+class #class# extends #extend# {}

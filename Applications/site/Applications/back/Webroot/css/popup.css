@@ -1,0 +1,231 @@
+#modal
+	{
+		position: 					fixed;
+		top: 						0;
+		left: 						0;
+		bottom: 					0;
+		right: 						0;
+		background-color: 			#ccc;
+		z-index: 					997;
+	}
+.popup
+	{
+		position: 					fixed;
+		left: 						120px;
+		top: 						120px;
+		z-index: 					998;
+	}
+.popup.loading
+	{
+		left: 						50%;
+		top: 						50%;
+		margin-left: 				-80px;
+		margin-top: 				-50px;			
+	}
+.popup.content-block
+	{
+		background-color: 			transparent;
+	}
+	.popup .content
+		{
+			z-index: 					80;
+		}
+		.content .column
+			{
+				width: 					100%;
+			}
+	.popup .wrapper
+		{
+			position: 					absolute;
+			top: 						10px;
+			left: 						30px;
+			background-color: 			#FFF;
+		}
+	.popup .spinner-wrapper
+		{
+			position: 					absolute;
+			top: 						0px;
+			left: 						0px;
+			background-color: 			#fff;
+			z-index: 					90;			
+		}
+		.popup .spinner
+			{
+				position: 					absolute;
+				left: 						50%;
+				top: 						50%;
+				margin-left: 				-10px;
+				margin-top: 				-10px;
+				background: 				transparent url('../img/spinner-20x20.png') no-repeat left top;			
+			}		
+.popup hr
+	{
+		color: 						#f1f1f1;
+		background-color: 			#f1f1f1;
+	}
+	
+	.popup .form-header,
+	.popup h4,
+	.popup h6	
+		{
+			text-shadow : none;
+		}	
+		
+	.popup.confirm
+		{
+			height: 					120px;	
+			width: 						500px;
+			left: 						50%;
+			top:						250px;
+			margin-left:				-125px;				
+		}
+		.popup.confirm h4
+			{
+				width:					420px;
+				text-align: 			center;				
+			}		
+	.popup.themas	
+		{
+			height: 					440px;	
+			width: 						500px;	
+		}
+	.popup.kunstenaar	
+		{
+			height: 					570px;	
+			width: 						500px;			
+		}
+	.popup.kunst
+		{
+			height: 					470px;	
+			width: 						500px;			
+		}	
+	.popup.image
+		{
+/*			height: 					400px;	*/
+			width: 						360px;			
+		}
+	.popup.loading
+		{
+			height: 					100px;
+			width: 						160px;			
+		}
+		
+		
+
+		.popup.confirm .wrapper,
+		.popup.confirm .spinner-wrapper		
+			{
+				height: 					100px;
+				width: 						440px;						
+			}
+			
+		.popup.image .wrapper,
+		.popup.image .spinner-wrapper		
+			{
+/*				min-height: 					380px; */
+				width: 						300px;						
+			}
+		.popup.image .column-wrapper
+			{
+				overflow: hidden;
+			}
+						
+		.popup.themas .wrapper,
+		.popup.themas .spinner-wrapper		
+			{
+				height: 					420px;
+				width: 						440px;						
+			}
+		.popup.themas .column-wrapper
+			{
+				height: 					310px;
+			}
+
+		.popup.kunstenaar .wrapper,
+		.popup.kunstenaar .spinner-wrapper		
+			{
+				height: 					550px;
+				width: 						440px;						
+			}
+		.popup.kunstenaar .column-wrapper
+			{
+				height: 					300px;
+			}
+			
+		.popup.kunst .wrapper,
+		.popup.kunst .spinner-wrapper		
+			{
+				height: 					450px;
+				width: 						440px;						
+			}
+		.popup.kunst .column-wrapper
+			{
+				height: 					300px;
+			}
+			
+		.popup.loading .wrapper,
+		.popup.loading .spinner-wrapper		
+			{
+				height: 					80px;
+				width: 						100px;						
+			}
+		.popup.loading .column-wrapper
+			{
+				height: 					80px;
+			}						
+
+			
+			.popup .column-content .row.odd
+				{
+					background-color: 			#f1f1f1;
+				}
+			.popup .column-content .row.even
+				{
+					background-color: 			#FFF;
+				}
+				.popup .column-content .row input[type="radio"]
+					{
+						margin: 6px 7px;
+					}					
+		
+		
+		
+		
+			
+	.popup .content-top .left
+		{
+			background: 				transparent url('../img/bg-popup-corners.png') no-repeat 20px top;
+		}	
+	.popup .content-top .center
+		{
+			background: 				transparent url('../img/bg-popup-topbottom.png') repeat-x left top;
+		}		
+	.popup .content-top .right
+		{
+			background: 				transparent url('../img/bg-popup-corners.png') no-repeat -10px top; 
+		}		
+	.popup .content-center .left
+		{
+			background: 				transparent url('../img/bg-popup-leftright.png') repeat-y 20px top;			
+		}	
+		
+	.popup.image .content-center
+		{
+			background: 				transparent url('../img/bg-popup-image.png') repeat-y left top;		
+		}		
+	.popup .content-center .right
+		{
+			background: 				transparent url('../img/bg-popup-leftright.png') repeat-y -10px top;	
+		}		
+	.popup .content-bottom .left
+		{
+			background: 				transparent url('../img/bg-popup-corners.png') no-repeat 20px bottom;	
+		}		
+	.popup .content-bottom .center
+		{
+			background: 				transparent url('../img/bg-popup-topbottom.png') repeat-x left bottom;
+		}	
+	.popup .content-bottom .right
+		{
+			background: 				transparent url('../img/bg-popup-corners.png') no-repeat -10px bottom;
+		}			

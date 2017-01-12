@@ -1,0 +1,70 @@
+2016-05-02T16:52:18+02:00 EMERG (): Database::connect[DATABASE ERROR] : perhaps a failed login credential, or perhaps the RDBMS is not running
+2016-05-02T16:52:18+02:00 EMERG (): Database::connect[DATABASE ERROR] : perhaps a failed login credential, or perhaps the RDBMS is not running
+2016-05-02T16:52:18+02:00 EMERG (): SQLSTATE[HY000] [1049] Unknown database 'osvt_statistics'
+2016-05-02T16:52:18+02:00 EMERG (): SQLSTATE[HY000] [1049] Unknown database 'osvt_statistics'
+2016-05-02T16:52:23+02:00 EMERG (): 'Unable to load controller 'Site.Front'' in /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Library/Loader/clsLoader.php at line 138
+2016-05-02T16:52:23+02:00 EMERG (): 
+
+#0 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Bootstrappers/clsBootstrapper.php(272): Loader::loadController('Site.Front')
+#1 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Bootstrappers/clsBootstrapper.php(86): b_Bootstrapper->loadController()
+#2 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/bootstrap.php(81): b_Bootstrapper->run(Array)
+#3 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/bootstrap.php(16): Bootstrap->__construct()
+#4 {main}
+2016-05-02T16:52:25+02:00 EMERG (): Database::connect[DATABASE ERROR] : perhaps a failed login credential, or perhaps the RDBMS is not running
+2016-05-02T16:52:25+02:00 EMERG (): SQLSTATE[HY000] [1049] Unknown database 'osvt_statistics'
+2016-05-02T16:52:25+02:00 EMERG (): 'Unable to load controller 'Site.Front'' in /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Library/Loader/clsLoader.php at line 138
+2016-05-02T16:52:25+02:00 EMERG (): 
+
+#0 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Bootstrappers/clsBootstrapper.php(272): Loader::loadController('Site.Front')
+#1 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Bootstrappers/clsBootstrapper.php(86): b_Bootstrapper->loadController()
+#2 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/bootstrap.php(81): b_Bootstrapper->run(Array)
+#3 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/bootstrap.php(16): Bootstrap->__construct()
+#4 {main}
+2016-06-20T14:21:44+02:00 EMERG (): Database::connect[DATABASE ERROR] : perhaps a failed login credential, or perhaps the RDBMS is not running
+2016-06-20T14:21:44+02:00 EMERG (): Database::connect[DATABASE ERROR] : perhaps a failed login credential, or perhaps the RDBMS is not running
+2016-06-20T14:21:44+02:00 EMERG (): SQLSTATE[HY000] [1049] Unknown database 'osvt_statistics'
+2016-06-20T14:21:44+02:00 EMERG (): SQLSTATE[HY000] [1049] Unknown database 'osvt_statistics'
+2016-06-20T14:21:44+02:00 EMERG (): 'Unable to load controller 'Site.Front'' in /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Library/Loader/clsLoader.php at line 138
+2016-06-20T14:21:44+02:00 EMERG (): 
+
+#0 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Bootstrappers/clsBootstrapper.php(272): Loader::loadController('Site.Front')
+#1 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Bootstrappers/clsBootstrapper.php(86): b_Bootstrapper->loadController()
+#2 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/bootstrap.php(81): b_Bootstrapper->run(Array)
+#3 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/bootstrap.php(16): Bootstrap->__construct()
+#4 {main}
+2016-06-20T14:21:52+02:00 EMERG (): Database::connect[DATABASE ERROR] : perhaps a failed login credential, or perhaps the RDBMS is not running
+2016-06-20T14:21:52+02:00 EMERG (): SQLSTATE[HY000] [1049] Unknown database 'osvt_statistics'
+2016-06-20T14:21:52+02:00 EMERG (): 'Unable to load controller 'Site.Front'' in /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Library/Loader/clsLoader.php at line 138
+2016-06-20T14:21:52+02:00 EMERG (): 
+
+#0 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Bootstrappers/clsBootstrapper.php(272): Loader::loadController('Site.Front')
+#1 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Bootstrappers/clsBootstrapper.php(86): b_Bootstrapper->loadController()
+#2 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/bootstrap.php(81): b_Bootstrapper->run(Array)
+#3 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/bootstrap.php(16): Bootstrap->__construct()
+#4 {main}
+2016-06-20T14:22:20+02:00 EMERG (): 'Unable to load controller 'Site.Back.Admin'' in /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Library/Loader/clsLoader.php at line 138
+2016-06-20T14:22:21+02:00 EMERG (): 
+
+#0 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Bootstrappers/clsBootstrapper.php(272): Loader::loadController('Site.Back.Admin')
+#1 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Bootstrappers/clsBootstrapper.php(86): b_Bootstrapper->loadController()
+#2 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/bootstrap.php(81): b_Bootstrapper->run(Array)
+#3 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/bootstrap.php(16): Bootstrap->__construct()
+#4 {main}
+2016-06-20T14:22:37+02:00 EMERG (): Database::connect[DATABASE ERROR] : perhaps a failed login credential, or perhaps the RDBMS is not running
+2016-06-20T14:22:37+02:00 EMERG (): SQLSTATE[HY000] [1049] Unknown database 'osvt_statistics'
+2016-06-20T14:22:37+02:00 EMERG (): 'Unable to load controller 'Site.Front'' in /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Library/Loader/clsLoader.php at line 138
+2016-06-20T14:22:37+02:00 EMERG (): 
+
+#0 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Bootstrappers/clsBootstrapper.php(272): Loader::loadController('Site.Front')
+#1 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Bootstrappers/clsBootstrapper.php(86): b_Bootstrapper->loadController()
+#2 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/bootstrap.php(81): b_Bootstrapper->run(Array)
+#3 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/bootstrap.php(16): Bootstrap->__construct()
+#4 {main}
+2016-06-20T14:22:40+02:00 EMERG (): 'Unable to load controller 'Site.Back.Admin'' in /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Library/Loader/clsLoader.php at line 138
+2016-06-20T14:22:40+02:00 EMERG (): 
+
+#0 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Bootstrappers/clsBootstrapper.php(272): Loader::loadController('Site.Back.Admin')
+#1 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/Bootstrappers/clsBootstrapper.php(86): b_Bootstrapper->loadController()
+#2 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/bootstrap.php(81): b_Bootstrapper->run(Array)
+#3 /Users/wiegerjelsma/Sites/osvt/siteFrameWork/bootstrap.php(16): Bootstrap->__construct()
+#4 {main}

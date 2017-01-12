@@ -1,0 +1,25 @@
+<?php
+/**
+ * @name	#class#Exception
+ * @author 	wiegerjelsma
+ * @version	1.0 #date#
+ */
+class #class#Exception extends #extend#Exception {}
+
+/**
+ * @name	#class#
+ * @author 	wiegerjelsma
+ * @version	1.0 #date#
+ */
+class #class# extends #extend# {
+	
+	/**
+	 * @name	init
+ 	 * @author 	wiegerjelsma
+ 	 * @version	1.0 #date#
+ 	 * @desc	called on creation (from loader)
+ 	 */	 
+	public function init(){
+		parent::init();
+	}
+}

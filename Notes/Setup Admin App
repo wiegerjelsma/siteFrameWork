@@ -1,0 +1,69 @@
+REWRITE RULES
+
+        # Rewrite alles naar cms.php
+        RewriteEngine On
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule ^(\/\w*){0,}$ /cms.php [NC,QSA]
+#        RewriteLogLevel 3
+#        RewriteLog "/Library/WebServer/Documents/cms/rewrite.log"
+
+FILES
+
+1) Maak een map aan '<prefix><project>' in de map /Library/WebServer/Documents/.
+2) Kopieer de bestanden vanuit /Library/WebServer/Documents/cmsFrameWork naar de zojuist aangemaakte map.
+3) Verwijder de mappen _bin, _input en _output.
+4) Maak de mappen _bin, _input en _output opnieuw aan.
+5) Zet de rechten van de mappen _bin, _input en _output op 777 en wiegerjelsma:admin.
+6) Leeg de map Log/.
+7) Verander de map '<prefix>cms' naar de nieuwe prefix.
+
+
+SYMLINKS
+
+1) Maak een symlink aan '<prefix> -> <prefix><project>/bootstrap.php' in de map /Library/Documents/.
+2) Maak een map aan '<prefix>Root' in de map /Library/WebServer/Documents/.
+3) Maak een symlink aan 'framework -> ../<prefix><project>/Webroot/' in de map <prefix>Root'.
+4) Maak per applicatie een symlink aan '<application> -> ../<prefix><project>/Applications/<applictaion>/Webroot/' in de map <prefix>Root'.
+
+
+DATABASES
+
+1) Maak de DB's <prefix>_<projectname>, <prefix>_front_history, <prefix>_back_history en <prefix>_statistics aan.
+2) Kopieer de tabeldstructuur vanuit de cms database
+
+
+INSTELLINGEN
+
+1) Prefix
+	File: <prefix>FrameWork/Config/defines.php 
+	Php: define("FWPREFIX", '<prefix>');
+2) Apps op domeinnaam
+	File: <prefix>FrameWork/Config/domainnames.php 
+	Php: $domains['http']['macbook.com'] = array(<apps>);
+3) Logo in de admin
+	File Large: <prefix>Root/<prefix>.back/img/logo-large.png 
+	File Small: <prefix>Root/<prefix>.back/img/logo-small.png
+4) Class namen: Ga voor elke controller, Module etc in de apps na waar 'cms' als prefix wordt gebruikt. Vervang deze naar de nieuwe <prefix>.
+5) Verander in de history conf de database namen.
+	File: <prefix>FrameWork/Modules/History/history.conf
+	
+
+INSTALL
+
+1) Update elke applicatie. 
+	$ php install.php -c application:update -a cms
+	$ php install.php -c application:update -a cms.back
+	$ php install.php -c application:update -a cms.back.user
+	$ php install.php -c application:update -a cms.back.admin
+	$ php install.php -c application:update -a cms.front
+	
+
+MENU STRUCTUUR
+
+1) Hoofdtabs instellen:
+	File: <prefix>FrameWork/Applications/<prefix>/Applications/back/Config/application.conf (config <prefix>.back applicatie, hoofd admin app)
+	Php: $cfg['tabs'][] = array(); // invullen hoofdtabs
+2) Subtabs instellen:
+	File: <prefix>FrameWork/Applications/<prefix>/Applications/back/Config/application.conf (config <prefix>.back applicatie, hoofd admin app)
+	Php: $cfg['leftmenu']['<naam tab>'][] = array(); // invullen subtabs

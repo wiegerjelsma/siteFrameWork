@@ -1,0 +1,85 @@
+1) Creeer een ftp account voor het framework
+$ useradd -d /var/www/<prefix>FrameWork/ -g users <prefix>fwlive
+$ passwd <prefix>fwlive
+
+2) Upload het framework naar de zojuist aangemaakte directory
+
+
+DOMEIN INRICHTEN
+
+1) .htaccess
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(\/\w*){0,}$ /ltc.php [NC,QSA]
+#RewriteRule ^zapq/(j|c)/([a-z]+)-([0-9]+)\.(js|css)$ /zap/$1/$2.$4 [L]
+
+# Alleen toegang geven aan de volgende ip adressen
+order deny,allow
+allow from 157.193.1.1
+allow from 157.193.1.2
+allow from 157.193.1.3
+deny from all
+
+2) 
+
+DIRECT ADMIN
+1) Pas de Custom HTTPD config aan
+
+|?OPEN_BASEDIR_PATH=`HOME`:/tmp:/usr/local/lib/php/:/var/www/wwFrameWork/|
+
+
+
+
+
+SYMLINKS
+
+1) Maak een symlink aan '<prefix> -> <prefix><project>/bootstrap.php' in de map /Library/Documents/.
+2) Maak een map aan '<prefix>Root' in de map /Library/WebServer/Documents/.
+3) Maak een symlink aan 'framework -> ../<prefix><project>/Webroot/' in de map <prefix>Root'.
+4) Maak per applicatie een symlink aan '<application> -> ../<prefix><project>/Applications/<applictaion>/Webroot/' in de map <prefix>Root'.
+
+
+DIRECTORIES
+
+1) Maak de directories _bin, _input en _output
+2) Zet de rechten op apache:users 775 voor _input en _bin
+3) zet de rechten op 775 voor _output
+4) Maak de directory Log aan
+5) Zet de rechten voor de Log driectory als volgt: apache:users 775
+
+
+DATABASE
+
+1) Maak een DB aan genaamd: <prefix>_data & <prefix>_statistics
+2) Maak een user aan voor de DB genaamd: <prefix>
+3) Kopieer de DB van localhost naar live (voor de statistieken alleen structuur).
+3.1) Maak een dump lokaal:
+$ /usr/local/zend/mysql/bin/mysqldump -u root -p ltc_data --skip-add-locks --skip-lock-tables > /Library/WebServer/Documents/ltc/ltcFrameWork/Notes/ltc_data.sql
+3.2) Upload de file
+3.3) Importeer de file
+$ mysql -u ltc -p ltc_data < ltc_data.sql
+
+
+CONFIG
+
+1) Pas het volgende in de Config/domainnames.php aan:
+$domains['http']['medot.nl'] = array('ltc.back','ltc.back.admin','ltc.back.user','ltc.front');
+2) Pas het volgende in de Config/Framework.conf aan:
+
+$cfg['db']['dsn']['params']['VPSMEDOT'] =
+		array(
+ 	   		'username' => '<prefix>',
+ 	   		'password' => '<password>',
+ 	   		'host' => 'localhost'
+		);
+3) Pas de HTPPD Configurations aan via Direct Admin
+# |?OPEN_BASEDIR_PATH=`HOME`:/tmp:/usr/local/lib/php/:/var/www/ltcFrameWork/|
+
+4) Pas de httpd config aan in de file frameworks.conf.
+$  nano /etc/httpd/conf/extra/frameworks.conf
+* Kijk even bij andere domeinnamen wat daar staat.
+
+5) Restart apache: $ apachectl restart
+

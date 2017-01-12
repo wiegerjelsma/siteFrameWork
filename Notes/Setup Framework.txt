@@ -1,0 +1,71 @@
+LOKAAL SETUP
+
+FILES
+
+1) Maak de map /Library/WebServer/Documents/<prefix> 
+2) Maak een map aan '<prefix><project>' in de map /Library/WebServer/Documents/<prefix>.
+3) Kopieer de bestanden vanuit /Library/WebServer/Documents/cmsFrameWork naar de zojuist aangemaakte map.
+4) Verwijder de mappen _bin, _input en _output.
+5) Maak de mappen _bin, _input en _output opnieuw aan.
+6) Zet de rechten van de mappen _bin, _input en _output op 777 en wiegerjelsma:admin.
+7) Leeg de map Log/.
+8) Verander de map '<prefix>cms' naar de nieuwe prefix.
+
+
+VHOST
+
+1) $ cd /private/etc/apache2/extra/
+2) $ nano httpd-vhotst.conf
+3) Voeg het volgende toe:
+
+<VirtualHost *:80>
+        DocumentRoot "/Library/WebServer/Documents/ww"
+        ServerName ww.macbook.com
+        ServerAlias www.ww.macbook.com
+
+        DirectoryIndex ww.php index.php index.html
+
+        RewriteEngine On
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule ^(\/\w*){0,}$ /ww.php [NC,QSA]
+
+#       RewriteLogLevel 3
+#       RewriteLog "/Library/WebServer/Documents/cms/rewrite.log"
+</VirtualHost>
+
+OP LIVE MOET HET DIT ZIJN IN DE htaccess
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php?url=$1 [L,QSA]
+#RewriteRule ^zapq/(j|c)/([a-z]+)-([0-9]+)\.(js|css)$ /zap/$1/$2.$4 [L]
+
+
+HOSTS FILE
+
+$ nano /etc/hosts
+Voeg het volgende toe: 127.0.0.1 ww.macbook.com
+
+
+DATABASES
+
+1) Maak de DB's <prefix>_<projectname>, <prefix>_front_history, <prefix>_back_history en <prefix>_statistics aan.
+2) Kopieer de tabeldstructuur vanuit de cms database
+
+
+INSTELLINGEN
+
+1) Prefix
+	File: <prefix>FrameWork/Config/defines.php 
+	Php: define("FWPREFIX", '<prefix>');
+2) Apps op domeinnaam
+	File: <prefix>FrameWork/Config/domainnames.php 
+	Php: $domains['http']['macbook.com'] = array(<apps>);
+3) Logo in de admin
+	File Large: <prefix>Root/<prefix>.back/img/logo-large.png 
+	File Small: <prefix>Root/<prefix>.back/img/logo-small.png
+4) Class namen: Ga voor elke controller, Module etc in de apps na waar 'cms' als prefix wordt gebruikt. Vervang deze naar de nieuwe <prefix>.
+5) Verander in de history conf de database namen.
+	File: <prefix>FrameWork/Modules/History/history.conf
