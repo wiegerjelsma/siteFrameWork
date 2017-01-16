@@ -40,6 +40,7 @@ php install.php -c controller:create -p myController -a myApp
 ```
 
 The command consist of; calling the install script, passing through the command (seperated by :) and the name param (a) if necessary.
+See `install.php` and the directory `Installjobs` for the source files.
 
 
 # Config files
